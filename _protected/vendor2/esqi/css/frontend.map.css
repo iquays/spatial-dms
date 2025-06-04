@@ -1,0 +1,111 @@
+/* by SQ */
+html, body {
+    /*margin: 0px;*/
+    height: 100%;
+}
+
+body {
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#content {
+    flex: 1 1;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#layer-sidebar {
+    /*flex-basis: 19rem;*/
+    -webkit-flex-basis: 290px; /* Safari 6.1+ */
+    flex-basis: 290px;
+    border: 1px solid grey;
+    box-shadow: 4px 0px 8px 0 rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: margin 0.3s ease-in-out;
+}
+
+#layer-sidebar.collapsed {
+    margin-left: -290px;
+    transition: margin 0.5s ease-in-out;
+}
+
+#map {
+    flex: 1;
+    z-index: 0;
+}
+
+/*.left-menu, .leaflet-top, .leaflet-right {*/
+.auto-fade {
+    -webkit-transition: opacity 2s ease-in-out 3s;
+    -moz-transition: opacity 2s ease-in-out 3s;
+    -o-transition: opacity 2s ease-in-out 3s;
+    transition: opacity 2s ease-in-out 3s;
+    opacity: 0.7;
+}
+
+/*.left-menu:hover, .leaflet-top:hover, .leaflet-right:hover {*/
+.auto-fade:hover {
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1.0;
+}
+
+/* OVERWRITE DEFAULT STYLES */
+/* Overwrite Leaflet Control Measure */
+.leaflet-touch .leaflet-control-measure .leaflet-control-measure-toggle, .leaflet-touch .leaflet-control-measure .leaflet-control-measure-toggle:hover {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.2)
+}
+
+.leaflet-control-measure {
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+/* Overwrite Leaflet Control GraphicScale */
+.leaflet-control-graphicscale {
+    background-color: rgb(254, 246, 237);
+    /*background-image: url(./noise.png);*/
+    padding: 0 17px 0 5px;
+    box-shadow: 0 0 30px rgba(52, 38, 13, .5);
+    color: rgb(107, 55, 32);
+}
+
+.leaflet-control-graphicscale-inner .label {
+    color: rgb(107, 55, 32);
+    font-size: 100%;
+}
+
+#layer-sidebar-toggle {
+    position: relative;
+    right: -15px;
+    transition: right 0.3s ease-in-out;
+}
+
+#layer-sidebar-toggle.layer-sidebar-hide {
+    position: relative;
+    right: -60px;
+    transition: right 0.5s ease-in-out;
+}
+
+#layer-modal-toggle {
+    position: relative;
+    right: -21px;
+}
+
+#layerModal {
+    z-index: 99999 !important;
+}
+
+.leaflet-container {
+    isolation: isolate;
+}
+
+.rearrange-layer:hover {
+    cursor: row-resize !important;
+}

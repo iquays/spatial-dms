@@ -1,0 +1,9 @@
+/*Auto increment table number*/
+#opd-list, #urusan-list {
+    counter-reset: Serial1; /* Set the Serial counter to 0 */
+}
+
+table#opd-list td:first-child:before, table#lecturer-list td:first-child:before {
+    counter-increment: Serial1; /* Increment the Serial counter */
+    content: counter(Serial1); /* Display the counter */
+}
